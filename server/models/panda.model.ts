@@ -1,13 +1,9 @@
-import mongoose, { Document, Schema } from 'mongoose';
-
-export interface Panda extends Document {
-  name: string;
-  photo: string[];
-}
+import mongoose, { Schema } from 'mongoose';
+import { IPanda } from '../types';
 
 const PandaSchema: Schema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   photos: [String],
 });
 
-export default mongoose.model<Panda>('Panda', PandaSchema);
+export default mongoose.model<IPanda>('Panda', PandaSchema);
