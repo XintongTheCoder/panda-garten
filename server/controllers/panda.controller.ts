@@ -21,11 +21,17 @@ export async function drawPandas(req: Request, res: Response): Promise<void> {
   const pandaSet = new Set<string>();
   const pandas: IPanda[] = [];
   try {
+    const targetPanda = await PandaModel.findOne({ name }).exec();
+    if (!targetPanda) {
+      throw new Error();
+    }
+    pandas.push(targetPanda);
+    pandaSet.add(name);
     while (pandaSet.size < count) {
-      const results = await PandaModel.aggregate([
+      const restPandas = await PandaModel.aggregate([
         { $sample: { size: count - pandaSet.size } },
       ]).exec();
-      results.forEach((panda) => {
+      restPandas.forEach((panda) => {
         if (!pandas.includes(panda.name)) {
           pandas.push(panda);
           pandaSet.add(panda.name);
