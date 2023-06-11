@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./App.css";
 
 interface Panda {
@@ -39,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <div>Panda Garten</div>
+        <div>PandaGarten</div>
         <button className="count-btn" onClick={fetchPanda}>
           Draw a panda
         </button>
