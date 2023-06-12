@@ -10,6 +10,7 @@
     "@types/node": "^16.18.34",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -19,6 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "watch": "npm-watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-watch": "^0.11.0"
   }
 }
