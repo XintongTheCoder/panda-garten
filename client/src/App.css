@@ -43,34 +43,31 @@
     transform: rotate(360deg);
   }
 }
-.count-btn {
-  margin-right:30px;
-  height: 60px;
-  width: 100px;
-  text-align: center;
+
+.btn {
   background-color: white;
   border: 1px solid slategrey;
   box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.5);
   color: rgb(81, 82, 83);
   border-radius: 6px;
-  font-size:30px;
   font-family: 'Darumadrop One', cursive;
   transition: 0.3s;
+}
+
+.count-btn {
+  margin-right:30px;
+  height: 60px;
+  width: 100px;
+  text-align: center;
+  font-size:30px;
 }
 
 .draw-btn {
   margin-right:30px;
   height: 60px;
   width: 280px;
-  background-color: white;
-  border: 1px solid slategrey;
-  box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.5);
-  color: rgb(81, 82, 83);
-  border-radius: 6px;
   font-size:36px;
-  font-family: 'Darumadrop One', cursive;
   cursor: pointer;
-  transition: 0.3s;
   &:hover {
     background-color: rgb(243, 239, 243);
     box-shadow: 0 3px 6px 0 rgba(255, 255, 255, 0.8);

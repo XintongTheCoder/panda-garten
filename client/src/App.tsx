@@ -39,11 +39,11 @@ function App() {
       <div className="App-header">
         <div className="title">PandaGarten</div>
         <div>
-          <button className="draw-btn" onClick={fetchPanda}>
+          <button className="btn draw-btn" onClick={fetchPanda}>
             Draw a panda
           </button>
           <input
-            className="count-btn"
+            className="btn count-btn"
             type="number"
             min="2"
             max="5"
