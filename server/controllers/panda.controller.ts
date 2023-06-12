@@ -32,7 +32,7 @@ export async function drawPandas(req: Request, res: Response): Promise<void> {
         { $sample: { size: count - pandaSet.size } },
       ]).exec();
       restPandas.forEach((panda) => {
-        if (!pandas.includes(panda.name)) {
+        if (!pandaSet.has(panda.name)) {
           pandas.push(panda);
           pandaSet.add(panda.name);
         }

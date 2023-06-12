@@ -6,11 +6,10 @@ interface Panda {
   photo: string;
 }
 
-const steps = ["next", "end", "restart"];
-
 function App() {
   const [name, setName] = useState("");
   const [pandas, setPandas] = useState<Panda[]>([]);
+  const [count, setCount] = useState("3");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [guessResult, setGuessResult] = useState<"none" | "right" | "wrong">(
     "none"
@@ -26,7 +25,7 @@ function App() {
         return resp.name;
       })
       .then((name) =>
-        fetch(`http://localhost:8080/api/pandas/draw/${name}?count=3`)
+        fetch(`http://localhost:8080/api/pandas/draw/${name}?count=${count}`)
       )
       .then((resp) => resp.json())
       .then((resp) => {
@@ -38,31 +37,49 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <div>PandaGarten</div>
-        <button className="count-btn" onClick={fetchPanda}>
-          Draw a panda
-        </button>
+        <div className="title">PandaGarten</div>
+        <div>
+          <button className="draw-btn" onClick={fetchPanda}>
+            Draw a panda
+          </button>
+          <input
+            className="count-btn"
+            type="number"
+            min="2"
+            max="5"
+            value={count}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setCount(event.target.value);
+            }}
+          ></input>
+        </div>
       </div>
-      {name && <div className="question">{`Which panda is ${name}`}</div>}
+      {name && <div className="question">{`Which panda is ${name}?`}</div>}
       <div className="cards-container">
         {!isLoading &&
           pandas.map((panda) => (
-            <div>
-              <img
-                src={panda.photo}
-                onClick={() => {
-                  setGuessResult(panda.name === name ? "right" : "wrong");
-                }}
-              ></img>
+            <div
+              className={`card-container ${
+                guessResult === "none" ? "" : "flippable"
+              }`}
+              key={panda.name}
+            >
+              <div className="card-face card-face-front">
+                <img
+                  src={panda.photo}
+                  onClick={() => {
+                    setGuessResult(panda.name === name ? "right" : "wrong");
+                  }}
+                ></img>
+              </div>
+              <div className="card-face card-face-back">{panda.name}</div>
             </div>
           ))}
       </div>
       {guessResult === "right" && (
-        <div className="guess-result">Right guess!</div>
+        <div className="guess-right">Right guess!</div>
       )}
-      {guessResult === "wrong" && (
-        <div className="guess-result">Try again!</div>
-      )}
+      {guessResult === "wrong" && <div className="guess-wrong">Try again!</div>}
     </div>
   );
 }
