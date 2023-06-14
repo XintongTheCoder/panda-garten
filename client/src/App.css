@@ -1,4 +1,5 @@
-.App {
+.app-container {
+  position: relative;
   text-align: center;
   font-family: 'Darumadrop One', cursive;
 }
@@ -72,6 +73,40 @@
     background-color: rgb(243, 239, 243);
     box-shadow: 0 3px 6px 0 rgba(255, 255, 255, 0.8);
   }
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.cheatsheet-btn {
+  margin-right: 20px;
+}
+
+.cheatsheet {
+  position: absolute;
+  top: 80px;
+  left: 600px;
+  height: 100vh;
+  background-color: rgb(248, 248, 248);  ;
+  box-shadow: 0 3px 6px 0 rgba(191, 190, 190, 0.8);
+}
+
+.cheatsheet-img {
+  height: 900px;
+
+}
+
+.close-btn {
+  position: absolute;
+  top: 50px;
+  left: 1200px;
+  border-radius: 10px;
 }
 
 .question {

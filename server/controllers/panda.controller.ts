@@ -3,6 +3,7 @@ import { IPanda } from '../types';
 import PandaModel from '../models/panda.model';
 
 export function drawPandaName(req: Request, res: Response): void {
+  console.log('in controller');
   PandaModel.aggregate([{ $sample: { size: 1 } }])
     .exec()
     .then((pandas: IPanda[]) => pandas[0].name)
