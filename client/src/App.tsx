@@ -89,6 +89,7 @@ function App() {
               onClick={() => {
                 setPandas([]);
                 setName("");
+                setGuessResult("none");
                 setShowCheatsheet(true);
               }}
             />
