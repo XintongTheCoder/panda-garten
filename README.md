@@ -11,8 +11,6 @@ A lot of panda fans seem to struggle with telling pandas apart. Thus I built thi
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248.svg?style=for-the-badge&logo=MongoDB&logoColor=white)](https://www.mongodb.com/)
 [![Mongoose](https://img.shields.io/badge/Mongoose-880000.svg?style=for-the-badge&logo=Mongoose&logoColor=white)](https://mongoosejs.com/)
 
-- Database: MongoDB
-
 ## Contributor
 
 Xintong Mi
